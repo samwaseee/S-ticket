@@ -130,7 +130,7 @@ function confirm() {
         alert('Please select at least one seat !');
     }
     else {
-        alert('Please give you phone number for ticket conirmation');
+        alert('Please give you phone number for ticket confirmation');
     }
 }
 
