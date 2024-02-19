@@ -28,6 +28,8 @@ function ticketSelect() {
     }
 
     x = 0;
+    new15 = 0;
+    couple20 = 0;
 
     document.querySelectorAll('.tic').forEach(bt => {
         bt.addEventListener('click', function (e) {
