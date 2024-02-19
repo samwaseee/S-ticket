@@ -119,12 +119,15 @@ function coupon() {
 }
 
 function confirm() {
-    if (document.getElementById('phone-num').value != '') {
+    if (document.getElementById('phone-num').value != '' && x != 0) {
         document.getElementById('phone-num').value = '';
         document.getElementById('name').value = '';
 
         document.getElementById('main').classList.add('hidden');
         document.getElementById('last').classList.remove('hidden');
+    }
+    else if(x == 0){
+        alert('Please select at least one seat !');
     }
     else {
         alert('Please give you phone number for ticket conirmation');
