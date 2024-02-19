@@ -1,4 +1,11 @@
+function goToMain() {
+    document.getElementById('front').classList.add('hidden');
+
+    document.getElementById('main').classList.remove('hidden');
+}
+
 let x = 0;
+
 document.querySelectorAll('.btn').forEach(bt => {
     bt.addEventListener('click', function (e) {
         if (x < 4) {
@@ -25,21 +32,23 @@ document.querySelectorAll('.btn').forEach(bt => {
             y--;
             document.getElementById('seat-available').innerText = y;
         }
-        
+
+        document.getElementById('seat-warn').classList.remove('hidden');
+
         let couponCheck = document.getElementById('coupon-input').value;
 
-        if((couponCheck == 'new15' || couponCheck == 'couple20') && x!=0){
+        if ((couponCheck == 'new15' || couponCheck == 'couple 20') && x != 0) {
             document.getElementById('coupon-btn').removeAttribute('disabled');
         }
-        else{
-            document.getElementById('coupon-btn').setAttribute('disabled',true);
+        else {
+            document.getElementById('coupon-btn').setAttribute('disabled', true);
         }
     })
 })
 
 document.getElementById('coupon-input').addEventListener('keyup', function () {
 
-    if ((this.value == 'new15' || this.value == 'couple20') && x != 0) {
+    if ((this.value === 'new15' || this.value === 'couple 20') && x != 0) {
         document.getElementById('coupon-btn').removeAttribute('disabled');
     }
     else {
@@ -49,7 +58,7 @@ document.getElementById('coupon-input').addEventListener('keyup', function () {
 )
 
 function coupon() {
-    if ((document.getElementById('coupon-input').value) == 'new15') {
+    if ((document.getElementById('coupon-input').value) === 'new15') {
         let y = x;
         x = 4;
 
@@ -60,7 +69,11 @@ function coupon() {
 
         document.getElementById('Grand-total').innerText = y * 550 - y * 82.5;
     }
-    else if ((document.getElementById('coupon-input').value) == 'couple20') {
+    else if ((document.getElementById('coupon-input').value) === 'couple 20') {
+
+        let y = x;
+        x = 4;
+
         document.getElementById('coupon-div').classList.add('hidden');
         document.getElementById('discount-div').classList.remove('hidden');
 
@@ -68,4 +81,24 @@ function coupon() {
 
         document.getElementById('Grand-total').innerText = y * 550 - y * 110;
     }
+}
+
+function confirm() {
+    if (document.getElementById('phone-num').value != '') {
+        document.getElementById('phone-num').value = '';
+        document.getElementById('name').value = '';
+
+        document.getElementById('main').classList.add('hidden');
+        document.getElementById('last').classList.remove('hidden');
+
+    }
+    else {
+        alert('Please give you phone number for ticket conirmation');
+    }
+}
+
+
+function continueToMain() {
+    document.getElementById('last').classList.add('hidden');
+    document.getElementById('front').classList.remove('hidden');
 }
